@@ -49,7 +49,7 @@
         films.forEach(film => {
             const prix = film.actors.reduce((curr,actor)=>actorSalaries.get(actor)+curr,0);
 
-            const template=`<tr><td>${film.title}</td><td>${film.year}</td><td>${film.director}</td><td>${film.actors.join(' ')}</td><td>${prix}</></tr>`;
+            const template=`<tr><td>${film.title}</td><td>${film.year}</td><td>${film.director}</td><td>${film.actors.join(' ')}</td><td>${prix}$</></tr>`;
             location.insertAdjacentHTML("beforeend",template)
         });
     </script>
