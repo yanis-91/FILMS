@@ -13,11 +13,39 @@
     <div class="container mt-5">
         <a href="index.html" class="btn btn-secondary mb-3">Back to Home</a>
         <h1>Films</h1>
-        <div class="table-container">
-        </div>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Titre</th>
+                    <th>Année</th>
+                    <th>Réalisateur</th>
+                    <th>Acteurs</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody class="table-item ">
+
+            </tbody>
+        </table>
     </div>
+
     <script type="module">
+        
         import { films } from './actors.mjs';
+        import {actorSalaries} from './actors.mjs';
+        const location = document.querySelector("tbody");
+
+        const cost = films.map(film=>{
+            const prix = film.actors.reduce((curr,actor)=>actorSalaries.get(actor)+curr,0);
+            return {...film,prix}
+        })
+
+        films.forEach(film => {
+            const prix = film.actors.reduce((curr,actor)=>actorSalaries.get(actor)+curr,0);
+
+            const template=`<tr><td>${film.title}</td><td>${film.year}</td><td>${film.director}</td><td>${film.actors.join(' ')}</td><td>${prix}</></tr>`;
+            location.insertAdjacentHTML("beforeend",template)
+        });
     </script>
 </body>
 
