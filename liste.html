@@ -13,7 +13,7 @@
     <div class="container mt-5"></div>
     <a href="index.html" class="btn btn-secondary mb-3">Back to Home</a>
     <h1>Liste films</h1>
-    <ul class="liste-container">
+    <ul id="liste-container">
     </ul>
     </div>
     <script type="module">
@@ -23,7 +23,7 @@
 
         films.forEach(film => {
             const template = `<li>${film.title}-${film.year}-${film.director}-${film.actors}</li>`;
-            location.innerHTML = template;
+            location.insertAdjacentHTML("beforeend", template);
         })
     </script>
 </body>
