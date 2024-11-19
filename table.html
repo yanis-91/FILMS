@@ -46,10 +46,10 @@
             return {...film,prix}
         })
 
-        films.forEach(film => {
-            const prix = film.actors.reduce((curr,actor)=>actorSalaries.get(actor)+curr,0);
+        cost.sort((a,b)=>b.prix-a.prix);
 
-            const template=`<tr><td>${film.title}</td><td>${film.year}</td><td>${film.director}</td><td>${film.actors.join(' ')}</td><td>${prix}$</></tr>`;
+        cost.forEach(film => {          
+            const template=`<tr><td>${film.title}</td><td>${film.year}</td><td>${film.director}</td><td>${film.actors.join(' ')}</td><td>${film.prix}$</></tr>`;
             location.insertAdjacentHTML("beforeend",template)
         });
     </script>
