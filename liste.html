@@ -23,7 +23,7 @@
 
         films.forEach(film => {
             const template = `<li>${film.title}-${film.year}-${film.director}-${film.actors}</li>`;
-            location.innerHTML("beforeend", template);
+            location.innerHTML = template;
         })
     </script>
 </body>
