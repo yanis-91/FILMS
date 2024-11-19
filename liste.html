@@ -7,6 +7,13 @@
     <title>Films</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1f1f1f;
+            color: white;
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -24,7 +31,7 @@
         const location = document.getElementById("liste-container")
 
         films.forEach(film => {
-            const template = `<li class="list-group-item">${film.title} - ${film.year} - ${film.director} - ${film.actors.join(' ')}</li>`;
+            const template = `<li class="list-group-item bg-dark">${film.title} - ${film.year} - ${film.director} - ${film.actors.join(' ')}</li>`;
             location.insertAdjacentHTML("beforeend", template);
         })
     </script>
