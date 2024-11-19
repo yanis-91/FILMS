@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Films</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5"></div>
+    <a href="index.html" class="btn btn-secondary mb-3">Back to Home</a>
+    <h1>Films</h1>
+    <ul class="liste-container">
+    </ul>
+    </div>
+    <script type="module">
+        import { films } from './actors.mjs';
+
+        const location = document.getElementById("liste-container")
+
+        films.forEach(film => {
+            const template = `<li>${film.title}-${film.year}-${film.director}-${film.actors}</li>`;
+            location.insertAdjacentHTML("beforeend", template);
+        })
+    </script>
+</body>
+
+</html>
