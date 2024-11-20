@@ -30,8 +30,14 @@
 
         const location = document.getElementById("liste-container")
 
-        films.forEach(film => {
-            const template = `<li class="list-group-item bg-dark">${film.title} - ${film.year} - ${film.director} - ${film.actors.join(' ')}</li>`;
+        const notes = films.map(film => {
+            return {...film,
+                note:Math.floor(Math.random()*5)+1
+            }
+        })
+
+        notes.forEach(film => {
+            const template = `<li class="list-group-item bg-dark">${film.title} - ${film.year} - ${film.director} - ${film.actors.join(' ')} - ${film.note}</li>`;
             location.insertAdjacentHTML("beforeend", template);
         })
     </script>

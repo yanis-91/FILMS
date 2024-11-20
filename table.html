@@ -22,11 +22,8 @@
         <table class="table table-hover bg-dark text-white">
             <thead>
                 <tr>
-                    <th>Titre</th>
-                    <th>Année</th>
-                    <th>Réalisateur</th>
                     <th>Acteurs</th>
-                    <th>Prix</th>
+                    <th>Films</th>
                 </tr>
             </thead>
             <tbody class="table-item ">
@@ -48,8 +45,12 @@
 
         cost.sort((a,b)=>b.prix-a.prix);
 
-        cost.forEach(film => {          
-            const template=`<tr><td>${film.title}</td><td>${film.year}</td><td>${film.director}</td><td>${film.actors.join(' ')}</td><td>${film.prix}$</></tr>`;
+        const actors = films.map(film=>film.actors).flat();
+
+        const filmwith = (nom) => films.filter(film => film.actors.includes(nom)).map(film => film.title).join(' ');
+
+        actors.forEach(actor => {          
+            const template=`<tr><td>${actor}</td><td>${filmwith(actor)}</td></tr>`;
             location.insertAdjacentHTML("beforeend",template)
         });
     </script>

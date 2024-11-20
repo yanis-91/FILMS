@@ -46,3 +46,4 @@ export const actorSalaries = new Map([
     ["Sigourney Weaver", 7000],
     ["Charlize Theron", 10000]
 ]);
+
